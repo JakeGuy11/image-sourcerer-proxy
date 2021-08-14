@@ -1,1 +1,1 @@
-web: sh ./start_server.sh
+web: vendor/bin/heroku-php-apache2 web/

@@ -2,6 +2,7 @@
     $header_name = $_GET['name'];
     $header_content= $_GET['content'];
     $image_url = $_GET['src'];
+    $image_ext = $_GET['ext'];
 
     $curl_h = curl_init($image_url);
     curl_setopt($curl_h, CURLOPT_HTTPHEADER, array(
@@ -15,7 +16,8 @@
     $response = curl_exec($curl_h);
     curl_close($curl_h);
     
-    header('Content-Type: image/png');
+    header("Content-Type: image/$image_ext");
+    header('Access-Control-Allow-Origin: *');
     echo $response;
     die();
 ?>
